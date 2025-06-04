@@ -20,17 +20,17 @@ https://mirrors.sjtug.sjtu.edu.cn/immortalwrt/releases/23.05.4/packages/x86_64/l
 
 
 ## 旁路由的用户请注意
-如果需要修改旁路由 把99.custom 脚本的计算网卡数量  网口复写代码关闭或者删除即可(23-69) 使用下面的 uci 命令即可(放置在代码uci set后面） 
-# 删除WAN口/WAN6:
+## 如果需要修改旁路由 把99.custom 脚本的计算网卡数量  网口复写代码关闭或者删除即可(23-## 69) 使用下面的 uci 命令即可(放置在代码uci set后面） 
+#删除WAN口/WAN6:
 uci delete network.wan
 uci delete network.wan6
-# 设置全为lan口:
+#设置全为lan口: 
 uci set network.lan.ifname='eth0.1 eth1'
 
-# Writing by Alon (don't to be copy)
+# Writing by Alon (don't to be copy)在使用上述命令时最好保持文件格式 #后面是否需要加空格请留意或只复制两条命令即可。
 
 
-## 正常路由模式必读
+## 正常路由模式必读 如需要wan口请勿使用上述两条命令 Writing By Alon
 所谓正常的路由模式 就是指多网口用户，多网口的意思就是2个或者2个以上网口的情况。<br>
 一般wan用于拨号或者自动获取ip <br>
 而其他lan一般是给其他设备分配dhcp<br>
