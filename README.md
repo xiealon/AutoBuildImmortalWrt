@@ -24,6 +24,10 @@ https://mirrors.sjtug.sjtu.edu.cn/immortalwrt/releases/23.05.4/packages/x86_64/l
 旁路的逻辑应该是单网口模式。根据下面的固件属性可知。单网口默认采取`dhcp模式`，用户应当自行在上一级路由器查看给imm路由器分配的ip地址。
 然后通过该ip来访问imm后台页面，在imm后台页面中，根据自己主路由的网段 自行配置旁路的ip地址。
 
+如果需要修改旁路由 把99.custom 脚本的计算网卡数量  网口复写代码关闭 使用下面的 uci 命令即可 设置全为lan口 ： 
+                                                                      uci set network.lan.ifname='eth0.1 eth1'
+
+
 ## 正常路由模式必读
 所谓正常的路由模式 就是指多网口用户，多网口的意思就是2个或者2个以上网口的情况。<br>
 一般wan用于拨号或者自动获取ip <br>
