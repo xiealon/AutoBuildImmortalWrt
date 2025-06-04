@@ -19,13 +19,15 @@ https://mirrors.sjtug.sjtu.edu.cn/immortalwrt/releases/23.05.4/packages/aarch64_
 https://mirrors.sjtug.sjtu.edu.cn/immortalwrt/releases/23.05.4/packages/x86_64/luci/ 
 
 
-## 旁路由的用户必读
-近期不少用户修改配置文件中的默认ip地址，误认为这个工作流可以直接设置旁路ip。这是巨大的误解，这样设置就乱套了。<br>
-旁路的逻辑应该是单网口模式。根据下面的固件属性可知。单网口默认采取`dhcp模式`，用户应当自行在上一级路由器查看给imm路由器分配的ip地址。
-然后通过该ip来访问imm后台页面，在imm后台页面中，根据自己主路由的网段 自行配置旁路的ip地址。
+## 旁路由的用户请注意
+如果需要修改旁路由 把99.custom 脚本的计算网卡数量  网口复写代码关闭或者删除即可(23-69) 使用下面的 uci 命令即可(放置在代码uci set后面） 
+# 删除WAN口/WAN6:
+uci delete network.wan
+uci delete network.wan6
+# 设置全为lan口:
+uci set network.lan.ifname='eth0.1 eth1'
 
-如果需要修改旁路由 把99.custom 脚本的计算网卡数量  网口复写代码关闭 使用下面的 uci 命令即可 设置全为lan口 ： 
-                                                                      uci set network.lan.ifname='eth0.1 eth1'
+# Writing by Alon (don't to be copy)
 
 
 ## 正常路由模式必读
